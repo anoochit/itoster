@@ -1,5 +1,9 @@
 Ubuntu 8.04 Live CD|ubuntu-8.04-livecd-i386.iso|ubuntu-cd.png|
 Ubuntu 8.04 DVD|ubuntu-8.04-dvd-i386.iso|ubuntu-cd.png|
 Ubuntu 8.04 Alternate|ubuntu-alternate-8.04-i386.iso|ubuntu-cd.png|
-Ubuntu 8.10 Live CD|ubuntu-8.10-livecd-i386.iso|ubuntu-cd.png|
-Ubuntu 8.10 DVD|ubuntu-8.10-dvd-i386.iso|ubuntu-cd.png|
+Ubuntu 8.10 Live CD|ubuntu-8.04-livecd-i386.iso|ubuntu-cd.png|
+Ubuntu 8.10 DVD|ubuntu-8.04-dvd-i386.iso|ubuntu-cd.png|
+Ubuntu 8.10 Alternate|ubuntu-alternate-8.04-i386.iso|ubuntu-cd.png|
+Ubuntu 9.04 Live CD|ubuntu-8.04-livecd-i386.iso|ubuntu-cd.png|
+Ubuntu 9.04 DVD|ubuntu-8.04-dvd-i386.iso|ubuntu-cd.png|
+Ubuntu 9.04 Alternate|ubuntu-alternate-8.04-i386.iso|ubuntu-cd.png|

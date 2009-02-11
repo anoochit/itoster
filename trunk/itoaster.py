@@ -24,6 +24,7 @@ except:
 class gui:
 	
 	iso_file = {}
+	iso_title = {}
 	
 	def __init__(self):
 		
@@ -31,12 +32,15 @@ class gui:
 		file = open("distrolist.txt")
 		self.index=1
 		for line in file.readlines():
+			# make dict for iso_file
 			line_str=line.split('|')
 			self.dictname=self.index;
 			gui.iso_file[self.dictname]=line_str[1]
-			self.index=self.index+1
+			gui.iso_title[self.dictname]=line_str[0]
+			self.index=self.index+1	
 		file.close()
 		print gui.iso_file
+		print gui.iso_title
 				
 		
 		# Load GUI
@@ -44,17 +48,25 @@ class gui:
 		dic = {	"on_cancel": (gtk.main_quit),
 						"on_burn": self.on_burn
 					}
-		self.wTree.signal_autoconnect(dic)
-		self.count = 0
+					
+		self.wTree.signal_autoconnect(dic)		
 		self.win = self.wTree.get_widget("window1")
 		self.win.connect("delete_event", self.on_delete_event)
 		self.win.maximize()
+		
+		# set button label
+		for index,filename in gui.iso_file.iteritems():
+		  self.button_name="button" + str(index)		  
+		  self.button = self.wTree.get_widget(self.button_name)
+		  self.button.set_label(gui.iso_title[index])		
+   	     
+   	    
 		self.win.show()
 
 	def on_burn(self, widget):
 		self.name= widget.name
 		self.file_index= int((self.name.split('button')[1]))
-		print gui.iso_file[self.file_index]
+		print gui.iso_file[self.file_index]	
 		
 		
 	
