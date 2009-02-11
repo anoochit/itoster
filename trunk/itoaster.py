@@ -8,9 +8,10 @@ import os
 import gobject
 
 class gui:
+	
 	def __init__(self):
 		self.wTree=gtk.glade.XML('itoaster.glade')
-		dic = {	}
+		dic = {	"on_cancel": (gtk.main_quit) }
 		self.wTree.signal_autoconnect(dic)
 		self.count = 0
 		self.win = self.wTree.get_widget("window1")
