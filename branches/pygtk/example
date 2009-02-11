@@ -1,0 +1,35 @@
+#!/usr/bin/python
+
+import pygtk
+import gtk
+import gtk.glade
+import string
+import os
+import gobject
+
+class gui:
+	def __init__(self):
+		self.wTree=gtk.glade.XML('example.glade')
+		dic = {	"on_count": self.on_count,
+			"on_cancel": (gtk.main_quit),
+			"on_total": self.on_total}
+		self.wTree.signal_autoconnect(dic)
+		self.count = 0
+		self.win = self.wTree.get_widget("window1")
+		self.win.show()
+	
+	def on_count(self, widget):
+		print "I have added one to the total"
+		self.count = self.count + 1
+
+	def on_total(self, widget):
+		        dialog = gtk.MessageDialog(self.win,
+        		gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+        		gtk.MESSAGE_INFO, gtk.BUTTONS_CLOSE, None)
+			dialog.set_markup('<big><b>'+str(self.count)+'</b></big>')
+			answer = dialog.run()
+			if answer:
+				dialog.destroy()
+
+app = gui()
+gtk.main()

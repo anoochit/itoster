@@ -1,0 +1,54 @@
+#!/usr/bin/python
+
+import pygtk
+import gtk
+import gtk.glade
+import string
+import os
+import gobject
+
+class gui:
+	def __init__(self):
+		self.wTree=gtk.glade.XML('example.glade')
+		dic = {	"on_count": self.on_count,
+			"on_cancel": (gtk.main_quit),
+			"on_total": self.on_total}
+		self.wTree.signal_autoconnect(dic)
+		self.count = 0
+		self.win = self.wTree.get_widget("window1")
+		self.win.connect("delete_event", self.on_delete_event)
+		self.win.show()
+	
+	def on_count(self, widget):
+		print "I have added one to the total"
+		self.count = self.count + 1
+
+	def on_total(self, widget):
+		self.win.set_sensitive(False)		
+	        dialog = gtk.MessageDialog(self.win,
+			gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+			gtk.MESSAGE_INFO, gtk.BUTTONS_CLOSE, None)
+		dialog.set_markup('<big><b>'+str(self.count)+'</b></big>')
+	        dialog.connect("destroy", lambda w: self.win.set_sensitive(True))
+		answer = dialog.run()
+		if answer:
+			dialog.destroy()
+
+	def on_delete_event(self, widget, event):
+		self.win.set_sensitive(False)
+	        dialog = gtk.MessageDialog(self.win,
+	        	gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+	        	gtk.MESSAGE_INFO, gtk.BUTTONS_YES_NO, None)
+	        dialog.set_markup('<big><b>Are you sure you want to quit?</b></big>')
+	        dialog.connect("destroy", lambda w: self.win.set_sensitive(True))
+	        answer = dialog.run()
+		if answer == -8:
+			dialog.destroy()
+			return False
+
+		if answer == -9:
+			dialog.destroy()
+			return True
+
+app = gui()
+gtk.main()
