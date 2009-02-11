@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Tue Feb 13 20:35:54 2001 -->
+<glade-interface>
+  <widget class="GtkWindow" id="window1">
+    <property name="title" translatable="yes">iToaster</property>
+    <property name="modal">True</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <property name="default_width">1024</property>
+    <property name="default_height">768</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon">icon.png</property>
+    <property name="gravity">GDK_GRAVITY_STATIC</property>
+    <child>
+      <placeholder/>
+    </child>
+  </widget>
+</glade-interface>
