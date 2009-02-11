@@ -37,6 +37,7 @@ class gui:
 			self.index=self.index+1
 		file.close()
 		print gui.iso_file
+				
 		
 		# Load GUI
 		self.wTree=gtk.glade.XML('itoaster.glade')
