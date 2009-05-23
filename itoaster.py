@@ -98,7 +98,7 @@ class gui:
 			return False
 
 		if answer == -9:
-			dialog.destroy()
+			dialog.destroy()			
 			return True
 
 app = gui()
