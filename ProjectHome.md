@@ -1,0 +1,1 @@
+iToaster is Kios software for CD/DVD burning box, to provide Free/Open Source Software. This project is the part of [Idea Connect!](http://innovative.ideaconnect.co.cc/)
